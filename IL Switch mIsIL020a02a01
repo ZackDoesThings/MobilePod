@@ -14,12 +14,11 @@ line con 0
 logging synchronous
 login local
 no ip domain lookup
-username cisco password cisco
+!
 line vty 0 4
 logging synchronous
 login local
 no ip domain lookup
-username cisco password cisco
 !
 !
 !
@@ -28,26 +27,26 @@ username cisco password cisco
 !
 
 vlan 90
-name IlvlanRT
+name Routing
 exit
 
 vlan 1220
-name ILvlan1
+name Users
 exit
 !
 
 vlan 2220
-name Ilvlan2
+name WLAN users
 exit
 !
 
 vlan 3220
-name ILvlan3
+name servers
 exit
 !
 
 vlan 914
-name ILvlanP2P
+name P2P
 exit
 !
 !
@@ -94,7 +93,7 @@ exit!
 !
 !
 interface vlan 2220
-ip address 10.2.22.225 255.255.255.248
+ip address 10.2.22.225 255.255.255.224
 description Management SVI default gateway for wgsa02a02
 ip helper-address 10.2.22.192
 standby 220 ip 10.2.26.227
@@ -109,7 +108,7 @@ exit!
 !
 !
 interface vlan 3220
-ip address 10.2.22.218 255.255.255.224
+ip address 10.2.22.218 255.255.255.248
 description Management SVI default gateway for Server
 standby 320 ip 10.2.26.217
 standby 320 priority 110
@@ -122,7 +121,7 @@ exit!
 
 int vlan 914 
 description SVI ILvlanP2P
-ip address 10.2.119.114 255.255.255.255
+ip address 10.2.119.114 255.255.255.252
 shut
 no shut
 exit
@@ -221,20 +220,7 @@ exit
 !
 !
 !
-interface F0/23
-switchport trunk encapsulation dot1q
-switchport mode trunk
-switchport trunk allowed vlan 90,3220
-channel-group 1 mode active
-shut!
-!
-no shut!
-!
-exit
-!
-!
-!
-interface F0/24
+interface range F0/23-24
 switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan 90,3220
@@ -255,7 +241,7 @@ passive-interface default
 no passive-interface F0/1
 no passive-interface F0/23
 no passive-interface F0/24
-network 10.2.22.201 0.0.0.0 area 0
+network 10.2.22.192 0.0.0.127 area 0
 default-information originate
 redistribute static subnet
 exit
@@ -266,4 +252,4 @@ exit
 **********Static***************
 
 ip route 0.0.0.0 0.0.0.0 10.2.122.113
-ip route 10.0.0.0 255.0.0.0 10.2.122.113
+ip route 10.0.0.0 0.0.0.255 10.2.122.113
