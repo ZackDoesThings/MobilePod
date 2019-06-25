@@ -14,130 +14,122 @@ logging synchronous
 login local
 no ip domain lookup
 username cisco password cisco
+!
+!
+!
+********************VLANS*********************
+!
+!
+!
 vlan 90
 name port Routing
+!
 vlan 1220
 name Users
 exit
+!
 vlan 2220
 name WLAN Users
-exit!
+exit
+!
 vlan 3220
 name servers
 !
 !
 !
 ip routing
+!
 interface loopback 0
 description loopback for L3 switch
-ip address <IP and netmask>
-shut!
-!
-no shut!
-!
-exit!
+ip address 10.2.22.195 255.255.255.255
+shut
+no shut
+exit
 !
 !
 !
 interface vlan 90
-ip address <IP and netmask>
+ip address 10.2.22.198 255.255.255.252
 description Port aggreagation interface to mLsa02a01
-shut!
-!
-no shut!
-!
-exit!
+shut
+no shut
+exit
 !
 !
 !
 interface vlan 1220
-ip address <IP and netmask>
+ip address 10.2.22.211 255.255.255.248
 description Management SVI default gateway for wgsa02a02
-ip helper-address <DHCP Server IP>
-standby 120 ip <HSRP IP>
+ip helper-address 10.2.22.192
+standby 120 ip 10.2.22.209
 standby 120 priority 90
-
-shut!
-!
-no shut!
-!
-exit!
+shut
+no shut
+exit
 !
 !
 !
 interface vlan 2220
-ip address <IP and netmask>
+ip address 10.2.22.226 255.255.255.224
 description Management SVI default gateway for wgsa02a02
-ip helper-address <DHCP serverIP>
-standby 120 ip <HSRP IP>
+ip helper-address  10.2.22.192
+standby 120 ip 10.2.22.227
 standby 120 priority 90
-shut!
-!
-no shut!
-!
-exit!
+shut
+no shut
+exit
 !
 !
 !
 interface vlan 3220
-ip address <IP and netmask>
+ip address 10.2.22.219 255.255.255.248
 description Management SVI default gateway for Server
-standby 120 ip <HSRP IP>
+standby 120 ip 10.2.22.217
 standby 120 priority 90
-shut!
-!
-no shut!
-!
-exit!
+shut
+no shut
+exit
 !
 !
 !
-interface <Port>
-description trunk interface from mIsIL020a02a01 switch to wgsa02a02 switch
+interface F1/0/3
+description trunk interface from mIsIL020a02a02 switch to wgsa02a02 switch
 switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan 1220,2220
-shut!
-!
-no shut!
-!
-exit!
+shut
+no shut
+exit
 !
 !
 !
-interface <Port>
-description trunk interface from mIsIL020a02a01 switch to wgsa02a01 switch
+interface F1/0/3
+description trunk interface from mIsIL020a02a02 switch to wgsa02a01 switch
 switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan 1220,2220
-shut!
-!
-no shut!
-!
-exit!
+shut
+no shut
+exit
 !
 !
 !
-interface <Port>
+interface F1/0/4
 description access interface for server
 switchport mode access
 switchport access vlan 3220
-shut!
-!
-no shut!
-!
-exit!
+shut
+no shut
+exit
 !
 !
 !
-interface Port
+interface Port F1/0/1
 Description routed link to rtrIL022a02a02
 no switchport
-ip address <IP and netmask>
-shut!
-!
-no shut!
-!
+ip address 10.2.22.205 255.255.255.252
+shut
+no shut
 exit
 !
 !
@@ -146,53 +138,47 @@ interface port-channel 1
 switchport trunk encapsulation dot1q
 switchport mode trunk 
 switchport trunk allowed vlan 90,3220
-shut!
-!
-no shut!
-!
+shut
+no shut
 exit
 !
 !
 !
-interface <Port>
+interface F2/0/1
 switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan 90,3220
 channel-group 1 mode active
-shut!
-!
-no shut!
-!
+shut
+no shut
 exit
 !
 !
 !
-interface <Port>
+interface F2/0/2
 switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan 90,3220
 channel-group 1 mode active
-shut!
-!
-no shut!
-!
+shut
+no shut
 exit
 !
 !
 !
-
 STATIC ROUTE
-ip route 0.0.0.0 0.0.0.0 10.2.20.202 
-
-EIGRP
-router eigrp 10
-no auto-summary
-network 10.2.20.192 0.0.0.63
-
+ip route 10.0.0.0 255.0.0.0 10.2.20.197
+!
+!
+!
 OSPF
-router ospf 100
+router ospf 22
 passive-interface default
-no passive-interface <Port>
-no passive-interface <Port>
-no passive-interface <Port>
-network <IP and netmask wildcard> area 0
+redistribute static subnets
+no passive-interface F1/0/1
+no passive-interface F2/0/1
+no passive-interface F2/0/2
+network 10.2.22.205 0.0.0.0 area 0
+!
+!
+!
