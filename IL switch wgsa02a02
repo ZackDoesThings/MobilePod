@@ -1,0 +1,76 @@
+enable
+terminal length 0
+conf t
+hostname wgsIL022a02a02
+enable secret cisco
+username cisco password cisco
+line con 0
+logging synchronous
+login local
+no ip domain lookup
+username cisco password cisco
+line vty 0 4
+logging synchronous
+login local
+no ip domain lookup
+username cisco password cisco
+
+
+vlan 1220
+name USER
+exit
+vlan 2220
+name MGMT
+exit!
+!
+!
+!
+interface vlan 2220
+ip address 10.2.22.230 255.255.255.224
+description Management SVI for vlan 2220
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface f0/1
+description trunk interface from wgsa02a02 to mIsIL022a02a01 switch
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 1220,2220
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface f0/2
+description trunk interface from wgsa02a02 to mIsIL022a02a02 switch
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 1220,2220
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface F0/37
+description access port to LWAPP
+switchport mode access
+switchport access vlan 2220
+shut!
+!
+no shut!
+!
+exit
+!
+!
+!
