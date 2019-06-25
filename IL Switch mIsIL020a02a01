@@ -1,0 +1,266 @@
+
+*********** JARED PETERSON 6/24 *****************
+
+
+
+enable
+terminal length 0
+conf t
+hostname mIsIL022a02a01
+enable secret cisco
+username cisco password cisco
+line con 0
+logging synchronous
+login local
+no ip domain lookup
+username cisco password cisco
+line vty 0 4
+logging synchronous
+login local
+no ip domain lookup
+username cisco password cisco
+
+*********** VLANS ****************
+!
+!
+
+vlan 90
+name IlvlanRT
+exit
+
+vlan 1190
+name ILvlan1
+exit
+!
+
+vlan 2190
+name Ilvlan2
+exit
+!
+
+vlan 3190
+name ILvlan3
+exit
+!
+
+vlan 914
+name ILvlanP2P
+exit
+!
+
+!
+ip routing
+
+interface loop0
+description loopback for L3 switch
+ip address 10.2.22.194 255.255.255.255
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface vlan 90
+ip address 10.2.22.197 255.255.255.248
+description Port aggreagation interface to mLsa02a02
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface vlan 1220
+ip address 10.2.22.210 255.255.255.248
+description Management SVI default gateway for wgsa02a01
+ip helper-address 10.2.22.192
+standby 120 ip 10.2.22.213
+standby 120 priority 110
+standby 120 preempt
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface vlan 2220
+ip address 10.2.22.218 255.255.255.248
+description Management SVI default gateway for wgsa02a02
+ip helper-address 10.2.22.192
+standby 220 ip 10.2.26.220
+standby 220 priority 110
+standby 220 preempt
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface vlan 3220
+ip address 10.2.22.226 255.255.255.224
+description Management SVI default gateway for Server
+standby 320 ip 10.2.26.225
+standby 320 priority 110
+standby 320 preempt
+shut!
+!
+no shut!
+!
+exit!
+
+int vlan 914 
+description SVI ILvlanP2P
+ip address 10.2.119.114 255.255.255.255
+shut
+no shut
+exit
+!
+
+
+************* Interfaces ***********
+
+
+!
+interface F0/2
+description trunk interface from mIsIL020a02a01 switch to rtra02a03
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 914
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface F0/13
+description trunk interface from mIsIL020a02a01 switch to wLca02a01
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 1220,2220
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface F0/3
+description trunk interface from mIsIL020a02a01 switch to wgsa02a01 switch
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 1220,2220
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface F0/4
+description trunk interface from mIsIL020a02a01 switch to wgsa02a02 switch
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 1220,2220
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface F0/5
+description access interface for server
+switchport mode access
+switchport access vlan 3220
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface F0/1
+Description routed link to rtrIL022a02a02
+no switchport
+ip address 10.2.22.201 255.255.255.252
+shut!
+!
+no shut!
+!
+exit
+!
+!
+!
+interface port-channel 1
+switchport trunk encapsulation dot1q
+switchport mode trunk 
+switchport trunk allowed vlan 90,3220
+shut!
+!
+no shut!
+!
+exit
+!
+!
+!
+interface F0/23
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 90,3220
+channel-group 1 mode active
+shut!
+!
+no shut!
+!
+exit
+!
+!
+!
+interface F0/24
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 90,3220
+channel-group 1 mode active
+shut!
+!
+no shut!
+!
+exit
+!
+!
+!
+***********OSPF***********
+
+OSPF
+router ospf 100
+passive-interface default
+no passive-interface F0/1
+no passive-interface F0/23
+no passive-interface F0/24
+network 10.2.22.0 0.0.0.255 area 0
+default-information originate
+redistribute static subnet
+exit
+
+!
+!
+
+**********Static***************
+
+ip route 0.0.0.0 0.0.0.0 10.2.122.113
+ip route 10.0.0.0 255.0.0.0 10.2.122.113
+
+*********** WLC ********************
