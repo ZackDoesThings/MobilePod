@@ -1,0 +1,117 @@
+
+*********** JARED PETERSON 6/24 *****************
+
+enable
+terminal length 0
+conf t
+hostname rtrNY022a02a01
+enable secret cisco
+username cisco password cisco
+line con 0
+logging synchronous
+login local
+no ip domain lookup
+username cisco password cisco
+line vty 0 4
+logging synchronous
+no ip domain lookup
+username cisco password cisco
+!
+!
+!
+
+*********** Interfaces *************
+
+
+interface loop0
+ip address 10.2.22.128 255.255.255.255
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+int G3
+no shutdown
+!
+exit!
+!
+!
+!
+interface G3.1222
+description Subinterface for owner
+encapsulation dot1q 1222
+ip address 10.2.22.137 255.255.255.248
+ip helper-address 10.2.22.192
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface G3.2222
+description Subinterface for Admin Office
+encapsulation dot1q 2222
+ip address 10.2.22.145 255.255.255.248
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface F0/1
+description CA router to router IL022a03a01
+ip address 10.2.22.73 255.255.255.252
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+
+************* BGP ***********
+!
+!
+
+router bgp 193
+no synchronization
+no auto-summary
+network 10.2.22.128 mask 255.255.255.128
+neighbor 10.2.22.74 remote-as 19
+neighbor 10.2.22.74 description ILrtr1
+neighbor 10.2.22.74 soft-reconfiguration inbound
+neighbor 10.2.22.70 route-map ILrtr1_IN in
+neighbor 10.2.22.70 route-map ILrtr1_OUT out
+
+!
+!
+
+**************** Prefix List / Route Map***************
+!
+!
+
+ip prefix-list ILrtr1_IN seq 5 permit 0.0.0.0/0
+ip prefix-list ILrtr1_IN seq 10 permit 10.0.0.0/8
+!
+route-map ILrtr1_IN permit 10
+match ip address prefix-list ILrtr1_IN
+!
+ip prefix-list ILrtr1_OUT seq 5 permit 10.2.22.128/26
+!
+route-map ILrtr1_OUT permit 10
+match ip address prefix-list ILrtr1_OUT
+
+!
+!
+!
+
+end
+!

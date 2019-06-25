@@ -1,0 +1,70 @@
+
+
+enable
+terminal length 0
+conf t
+hostname wgsNY022a02a01
+enable secret cisco
+username cisco password cisco
+line con 0
+logging synchronous
+login local
+no ip domain lookup
+username cisco password cisco
+line vty 0 4
+logging synchronous
+login local
+no ip domain lookup
+username cisco password cisco
+
+****************** VLANS *******************
+
+
+vlan 1222
+name Management
+exit
+vlan 2222
+name User
+exit!
+!
+!
+!
+interface vlan 1222
+ip address 10.2.22.142 255.255.255.248
+description Management SVI
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+
+******************* INTERFACES *********************
+
+
+interface F0/2
+description vlan for Users
+switchport mode access
+switchport access vlan 1222
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface F0/1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 1222,2222
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
