@@ -245,12 +245,12 @@ exit
 ***********OSPF***********
 
 OSPF
-router ospf 100
+router ospf 22
 passive-interface default
 no passive-interface F0/1
 no passive-interface F0/23
 no passive-interface F0/24
-network 10.2.22.0 0.0.0.255 area 0
+network 10.2.22.201 0.0.0.0 area 0
 default-information originate
 redistribute static subnet
 exit
