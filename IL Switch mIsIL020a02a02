@@ -1,0 +1,198 @@
+enable
+terminal length 0
+conf t
+hostname mIsIL022a02a02
+enable secret cisco
+username cisco password cisco
+line con 0
+logging synchronous
+login local
+no ip domain lookup
+username cisco password cisco
+line vty 0 4
+logging synchronous
+login local
+no ip domain lookup
+username cisco password cisco
+vlan 90
+name port Routing
+vlan 1220
+name Users
+exit
+vlan 2220
+name WLAN Users
+exit!
+vlan 3220
+name servers
+!
+!
+!
+ip routing
+interface loopback 0
+description loopback for L3 switch
+ip address <IP and netmask>
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface vlan 90
+ip address <IP and netmask>
+description Port aggreagation interface to mLsa02a01
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface vlan 1220
+ip address <IP and netmask>
+description Management SVI default gateway for wgsa02a02
+ip helper-address <DHCP Server IP>
+standby 120 ip <HSRP IP>
+standby 120 priority 90
+
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface vlan 2220
+ip address <IP and netmask>
+description Management SVI default gateway for wgsa02a02
+ip helper-address <DHCP serverIP>
+standby 120 ip <HSRP IP>
+standby 120 priority 90
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface vlan 3220
+ip address <IP and netmask>
+description Management SVI default gateway for Server
+standby 120 ip <HSRP IP>
+standby 120 priority 90
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface <Port>
+description trunk interface from mIsIL020a02a01 switch to wgsa02a02 switch
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 1220,2220
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface <Port>
+description trunk interface from mIsIL020a02a01 switch to wgsa02a01 switch
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 1220,2220
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface <Port>
+description access interface for server
+switchport mode access
+switchport access vlan 3220
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface Port
+Description routed link to rtrIL022a02a02
+no switchport
+ip address <IP and netmask>
+shut!
+!
+no shut!
+!
+exit
+!
+!
+!
+interface port-channel 1
+switchport trunk encapsulation dot1q
+switchport mode trunk 
+switchport trunk allowed vlan 90,3220
+shut!
+!
+no shut!
+!
+exit
+!
+!
+!
+interface <Port>
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 90,3220
+channel-group 1 mode active
+shut!
+!
+no shut!
+!
+exit
+!
+!
+!
+interface <Port>
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 90,3220
+channel-group 1 mode active
+shut!
+!
+no shut!
+!
+exit
+!
+!
+!
+
+STATIC ROUTE
+ip route 0.0.0.0 0.0.0.0 10.2.20.202 
+
+EIGRP
+router eigrp 10
+no auto-summary
+network 10.2.20.192 0.0.0.63
+
+OSPF
+router ospf 100
+passive-interface default
+no passive-interface <Port>
+no passive-interface <Port>
+no passive-interface <Port>
+network <IP and netmask wildcard> area 0
