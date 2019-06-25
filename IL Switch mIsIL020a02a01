@@ -1,8 +1,9 @@
-
-*********** mlsIL020a02a01 *****************
-
-
-
+****************************************
+*********** mlsIL020a02a01 *************
+****************************************
+!
+!
+!
 enable
 terminal length 0
 conf t
@@ -19,7 +20,9 @@ logging synchronous
 login local
 no ip domain lookup
 username cisco password cisco
-
+!
+!
+!
 *********** VLANS ****************
 !
 !
@@ -48,9 +51,11 @@ name ILvlanP2P
 exit
 !
 !
-
+!
 ip routing
-
+!
+!
+!
 interface loop0
 description loopback for L3 switch
 ip address 10.2.22.194 255.255.255.255
