@@ -1,5 +1,6 @@
-
-*********** JARED PETERSON 6/24 *****************
+********************************
+*****IL Router rtrILa22a02a02***
+********************************
 
 enable
 terminal length 0
@@ -107,7 +108,7 @@ exit!
 
 router ospf 22
 passive-interface G0/1
-network 10.2.22.0 0.0.0.3 area 0
+network 10.2.22.200 0.0.0.7 area 0 
 redistribute bgp 122 subnets
 default-information originate
 
