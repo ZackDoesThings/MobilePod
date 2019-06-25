@@ -1,0 +1,149 @@
+
+*********** JARED PETERSON 6/24 *****************
+
+enable
+terminal length 0
+conf t
+hostname rtrIL020a02a01
+enable secret cisco
+username cisco password cisco
+line con 0
+logging synchronous
+login local
+no ip domain lookup
+username cisco password cisco
+line vty 0 4
+logging synchronous
+no ip domain lookup
+username cisco password cisco
+
+
+*************************** Interfaces *****************************
+
+
+!
+interface loopback0
+ip address 10.2.22.80 255.255.255.255
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface F0/0
+description interface routed link to rtrCA
+ip address 10.2.22.70 255.255.255.252
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface F0/0/0
+description interface routed link to rtrNY
+ip address 10.2.22.74 255.255.255.252
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+!
+interface F0/1
+description Routed link to rtrILa02a02
+ip address 10.2.22.66 255.255.255.252
+shut!
+!
+no shut!
+!
+exit!
+!
+!
+
+router bgp 22
+no synchronization
+!
+
+neighbor 10.2.22.65 remote-as 122
+neighbor 10.2.22.65 description rtrIL1
+neighbor 10.2.22.65 soft-reconfiguration inbound
+neighbor 10.2.22.65 route-map ILrtr2_IN in
+neighbor 10.2.22.65 route-map ILrtr2_Out out
+!
+
+neighbor 10.2.22.73 remote-as 223
+neighbor 10.2.22.73 description rtrNY
+neighbor 10.2.22.73 soft-reconfiguration inbound
+neighbor 10.2.22.73 route-map NYrtr_IN in
+neighbor 10.2.22.73 route-map NYrtr_OUT out
+!
+
+neighbor 10.2.22.69 remote-as 222
+neighbor 10.2.22.69 description rtrCA
+neighbor 10.2.22.69 soft-reconfiguration inbound
+neighbor 10.2.22.69 route-map CArtr_IN in
+neighbor 10.2.22.69 route-map CArtr_OUT out
+!
+
+no auto-summary
+redistribute static
+exit
+
+**************** Prefix List / Route Map***************
+!
+!
+
+
+************ IL *************
+!
+
+ip prefix-list ILrtr2_IN seq 5 permit 0.0.0.0/0
+ip prefix-list ILrtr2_IN seq 10 permit 10.0.0.0/8
+!
+route-map ILrtr2_IN permit 10
+match ip address prefix-list ILrtr2_IN
+!
+ip prefix-list ILrtr2_OUT seq 5 permit 10.2.22.0/26
+ip prefix-list ILrtr2_OUT seq 10 permit 10.2.22.128/26
+ip prefix-list ILrtr2_OUT seq 15 permit 10.2.22.64/26
+!
+route-map ILrtr2_OUT permit 10
+match ip address prefix-list ILrtr2_OUT
+
+!
+!
+********** NY **************
+!
+!
+
+ip prefix-list NYrtr_IN seq 5 permit 10.2.22.128/26
+!
+route-map NYrtr_IN permit 10
+match ip address prefix-list NYrtr_IN
+!
+ip prefix-list NYrtr_OUT seq 5 permit 0.0.0.0/0
+ip prefix-list NYrtr_OUT seq 10 permit 10.0.0.0/8
+!
+route-map NYrtr_OUT permit 10
+match ip address prefix-list NYrtr_OUT
+
+!
+!
+********** CA *************
+!
+!
+
+ip prefix-list CArtr_IN seq 5 permit 10.2.22.0/26
+!
+route-map CArtr_IN permit 10
+match ip address prefix-list CArtr_IN
+!
+ip prefix-list CArtr_OUT seq 5 permit 0.0.0.0/0
+ip prefix-list CArtr_OUT seq 10 permit 10.0.0.0/8
+
+end
