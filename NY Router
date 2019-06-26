@@ -78,6 +78,7 @@ exit
 router bgp 223
 no synchronization
 no auto-summary
+network 10.2.22.128/26
 neighbor 10.2.22.74 remote-as 22
 neighbor 10.2.22.74 description ILrtr1
 neighbor 10.2.22.74 soft-reconfiguration inbound
@@ -105,5 +106,6 @@ match ip address prefix-list ILrtr1_OUT
 !
 !
 !
-end
+******static
 !
+ip route 10.2.22.128 0.0.0.63 null0
