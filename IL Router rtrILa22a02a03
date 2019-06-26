@@ -51,6 +51,7 @@ exit
 !
 interface F0/1.914
 description interface routed link to mLsa02a01
+ecapsulation dot1q 914
 ip address 10.2.122.113 255.255.255.248
 shut!
 !
