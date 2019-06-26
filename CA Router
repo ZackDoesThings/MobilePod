@@ -12,18 +12,16 @@ line con 0
 logging synchronous
 login local
 no ip domain lookup
-username cisco password cisco
 line vty 0 4
 logging synchronous
+login local
 no ip domain lookup
-username cisco password cisco
 !
 !
 !
-
 *********** Interfaces **************
-
-
+!
+!
 interface loop0
 ip address 10.2.22.1 255.255.255.255
 shut!
@@ -81,12 +79,10 @@ exit!
 !
 !
 !
-
 *******************  BGP  ***************************
 !
 !
-
-router bgp 192
+router bgp 222
 no synchronization
 !
 network 10.2.22.0 mask 255.255.255.192
@@ -116,5 +112,8 @@ match ip address prefix-list ILrtr1_OUT
 !
 !
 !
-end
+**********static
+!
+ip route 10.2.22.0 0.0.0.63 null0
+!
 
