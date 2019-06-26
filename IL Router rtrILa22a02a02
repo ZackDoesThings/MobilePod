@@ -1,7 +1,7 @@
 ********************************
 *****IL Router rtrILa22a02a02***
 ********************************
-
+!
 enable
 terminal length 0
 conf t
@@ -12,16 +12,15 @@ line con 0
 logging synchronous
 login local
 no ip domain lookup
-username cisco password cisco
 line vty 0 4
 logging synchronous
+login local
 no ip domain lookup
-username cisco password cisco
 !
-
+!
 ************* DHCP *************
-
-
+!
+!
 service dhcp
 !
 ip dhcp excluded-address 10.2.20.9
@@ -52,11 +51,11 @@ network 10.2.20.224 255.255.255.224
 default-router 10.2.20.227
 exit
 !
-
-
+!
+!
 ************* Interfaces **************
-
-
+!
+!
 !
 interface loopback0
 ip address 10.2.22.192 255.2555.255.255
@@ -64,13 +63,8 @@ shut!
 !
 no shut!
 !
-exit
-
-
-no shut
-
-exit
-
+exit!
+!
 interface G0/2
 description interface routed link to L3 switch MLSa02a01
 ip address 10.2.22.202 255.255.255.252
@@ -103,41 +97,40 @@ exit!
 !
 !
 !
-
+!
 ************ OSPF ******************
-
+!
 router ospf 22
 passive-interface G0/1
 network 10.2.22.200 0.0.0.7 area 0 
 redistribute bgp 122 subnets
-default-information originate
-
-
+!
+!
 **************** BGP *************
-
+!
 router bgp 122
 no synchronization
 !
-
-default-information originate
-redistribute BGP 122 match external
-
 !
-
+default-information originate
+redistribute ospf 22 match external
+!
+!
+!
 neighbor 10.2.22.66 remote-as 22
 neighbor 10.2.22.66 description ILrtr01
 neighbor 10.2.22.66 soft-reconfiguration inbound
 neighbor 10.2.22.66 route-map ILrtr1_IN in
 neighbor 10.2.22.66 route-map ILrtr1_Out out
-
 !
-
+!
+!
 **************** Prefix List ***************
-
+!
 no auto-summary
 redistribute static
 exit
-
+!
 ip prefix-list ILrtr1_OUT seq 5 permit 0.0.0.0/0
 ip prefix-list ILrtr1_OUT seq 10 permit 10.0.0.0/8
 !
@@ -150,5 +143,6 @@ ip prefix-list ILrtr1_IN seq 15 permit 10.2.22.64/26
 !
 route-map ILrtr1_IN permit 10
 match ip address prefix-list ILrtr2_IN
-
+!
 end
+!
