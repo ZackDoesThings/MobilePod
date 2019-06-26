@@ -1,7 +1,7 @@
 **************************************
 ********IL Router rtrILa22a02a03******
 **************************************
-
+!
 enable
 terminal length 0
 conf t
@@ -12,17 +12,15 @@ line con 0
 logging synchronous
 login local
 no ip domain lookup
-username cisco password cisco
 line vty 0 4
 logging synchronous
+login local
 no ip domain lookup
-username cisco password cisco
 !
-
-
+!
 ********************* Interfaces **************************
-
-
+!
+!
 interface loop0
 ip address 208.2.22.1 255.255.255.255
 shut!
@@ -47,6 +45,9 @@ no shut!
 exit!
 !
 !
+int f0/1
+no shut
+exit
 !
 interface F0/1.914
 description interface routed link to mLsa02a01
@@ -61,7 +62,7 @@ exit!
 ***************** BGP ****************
 !
 !
-
+!
 router bgp 8022
 no synchronization
 redistribute static
@@ -76,11 +77,11 @@ no auto-summary
 exit
 !
 !
-
+!
 **************** Prefix List / Route Map***************
 !
 !
-
+!
 ip prefix-list ISP_IN seq 5 permit 0.0.0.0/0
 ip prefix-list ISP_IN seq 10 permit 10.0.0.0/8
 !
@@ -92,16 +93,16 @@ ip prefix-list ISP_OUT seq 10 permit 10.2.122.0/24
 !
 route-map ISP_OUT permit 10
 match ip address prefix-list ISP_OUT
-
+!
 exit
-
+!
 ********************* Static Route ****************
 !
 !
-
+!
 ip route 10.2.22.0 255.255.255.0 10.2.122.114
-ip route 10.2.122.0 255.255.255.0 10.2.22.114
-
+ip route 10.2.122.0 255.255.255.0 10.2.122.114
 !
 !
 end
+!
