@@ -14,12 +14,10 @@ line con 0
 logging synchronous
 login local
 no ip domain lookup
-username cisco password cisco
 line vty 0 4
 logging synchronous
 login local
 no ip domain lookup
-username cisco password cisco
 !
 !
 !
@@ -69,6 +67,7 @@ description Management SVI default gateway for wgsa02a02
 ip helper-address 10.2.22.192
 standby 120 ip 10.2.22.209
 standby 120 priority 90
+standby 120 preempt
 shut
 no shut
 exit
@@ -78,9 +77,10 @@ exit
 interface vlan 2220
 ip address 10.2.22.226 255.255.255.224
 description Management SVI default gateway for wgsa02a02
-ip helper-address  10.2.22.192
+ip helper-address 10.2.22.192
 standby 120 ip 10.2.22.227
 standby 120 priority 90
+standby 120 preempt
 shut
 no shut
 exit
@@ -92,6 +92,7 @@ ip address 10.2.22.219 255.255.255.248
 description Management SVI default gateway for Server
 standby 120 ip 10.2.22.217
 standby 120 priority 90
+standby 120 preempt
 shut
 no shut
 exit
@@ -120,7 +121,7 @@ exit
 !
 !
 !
-interface F1/0/5
+interface F1/0/5 *unsure of what I changed the interface value to
 description access interface for server
 switchport mode access
 switchport access vlan 3220
@@ -130,7 +131,7 @@ exit
 !
 !
 !
-interface Port F1/0/1
+interface F1/0/1
 Description routed link to rtrIL022a02a02
 no switchport
 ip address 10.2.22.205 255.255.255.252
@@ -150,7 +151,7 @@ exit
 !
 !
 !
-interface F2/0/1
+interface range F2/0/1-2
 switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan 90,3220
@@ -161,19 +162,8 @@ exit
 !
 !
 !
-interface F2/0/2
-switchport trunk encapsulation dot1q
-switchport mode trunk
-switchport trunk allowed vlan 90,3220
-channel-group 1 mode active
-shut
-no shut
-exit
-!
-!
-!
-STATIC ROUTE
-ip route 10.0.0.0 255.0.0.0 10.2.20.197
+*****STATIC ROUTE
+ip route 10.0.0.0 0.0.0.255 10.2.20.197
 !
 !
 !
@@ -184,7 +174,7 @@ redistribute static subnets
 no passive-interface F1/0/1
 no passive-interface F2/0/1
 no passive-interface F2/0/2
-network 10.2.22.205 0.0.0.0 area 0
+network 10.2.22.192 0.0.0.127 area 0
 !
 !
 !
