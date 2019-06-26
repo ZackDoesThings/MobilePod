@@ -1,7 +1,7 @@
 **************************************
 ********** CA WGS ********************
 **************************************
-
+!
 enable
 terminal length 0
 conf t
@@ -12,16 +12,14 @@ line con 0
 logging synchronous
 login local
 no ip domain lookup
-username cisco password cisco
 line vty 0 4
 logging synchronous
 login local
 no ip domain lookup
-username cisco password cisco
-
+!
 ****************** VLANS *******************
-
-
+!
+!
 vlan 1221 
 name Management
 exit
@@ -40,9 +38,9 @@ no shut!
 !
 exit!
 !
-
+!
 ******************* INTERFACES *********************
-
+!
 !
 interface F0/2
 description vlan for owner
@@ -68,7 +66,3 @@ exit!
 !
 !
 !
-
-
-
-
