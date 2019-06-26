@@ -17,54 +17,54 @@ no ip domain lookup
 !
 vlan 2220
 name MGMT
-exit!
+exit
 !
 !
 !
 interface vlan 2220
 ip address 10.2.22.230 255.255.255.224
 description Management SVI for vlan 2220
-shut!
+shut
 !
-no shut!
+no shut
 !
-exit!
+exit
 !
 !
 !
-interface f0/1
+interface f1/0/1
 description trunk interface from wgsa02a02 to mIsIL022a02a01 switch
 switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan 1220,2220
-shut!
+shut
 !
-no shut!
+no shut
 !
-exit!
+exit
 !
 !
 !
-interface f0/2
+interface f1/0/2
 description trunk interface from wgsa02a02 to mIsIL022a02a02 switch
 switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan 1220,2220
-shut!
+shut
 !
-no shut!
+no shut
 !
-exit!
+exit
 !
 !
 !
-interface F0/37
+interface F1/0/37
 description access port to LWAPP
 switchport mode access
 switchport access vlan 2220
-shut!
+shut
 !
-no shut!
+no shut
 !
 exit
 !
