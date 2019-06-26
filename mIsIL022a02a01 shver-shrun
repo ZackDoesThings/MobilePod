@@ -1,0 +1,298 @@
+ ***************
+ mIsIL022a02a01
+ ***************
+ 
+ *****************SHOW VERSION***********************
+ 
+ 
+Cisco IOS Software, C3550 Software (C3550-IPSERVICESK9-M), Version 12.2(44)SE3, RELEASE SOFTWARE (fc2)
+Copyright (c) 1986-2008 by Cisco Systems, Inc.
+Compiled Mon 29-Sep-08 01:21 by nachen
+Image text-base: 0x00003000, data-base: 0x012A7BB8
+
+ROM: Bootstrap program is C3550 boot loader
+
+mIsIL022a02a01 uptime is 1 day, 1 hour, 45 minutes
+System returned to ROM by power-on
+System image file is "flash:/c3550-ipservicesk9-mz.122-44.SE3.bin"
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+Cisco WS-C3550-24-PWR (PowerPC) processor (revision E0) with 65526K/8192K bytes of memory.
+Processor board ID CAT0803Z0FX
+Last reset from warm-reset
+Running Layer2/3 Switching Image
+
+Ethernet-controller 1 has 12 Fast Ethernet/IEEE 802.3 interfaces
+
+Ethernet-controller 2 has 12 Fast Ethernet/IEEE 802.3 interfaces
+
+Ethernet-controller 3 has 1 Gigabit Ethernet/IEEE 802.3 interface
+
+Ethernet-controller 4 has 1 Gigabit Ethernet/IEEE 802.3 interface
+
+24 FastEthernet interfaces
+2 Gigabit Ethernet interfaces
+
+The password-recovery mechanism is enabled.
+384K bytes of flash-simulated NVRAM.
+Base ethernet MAC Address: 00:0F:23:77:50:80
+Motherboard assembly number: 73-8100-07
+Power supply part number: 341-0029-03
+Motherboard serial number: CAT08020C49
+Power supply serial number: LIT075103L6
+Model revision number: E0
+Motherboard revision number: A0
+Model number: WS-C3550-24PWR-EMI
+System serial number: CAT0803Z0FX
+Configuration register is 0x10F
+
+
+
+
+
+
+***************************SHOE RUNNING CONFIG*******************
+
+Building configuration...
+
+Current configuration : 4752 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname mIsIL022a02a01
+!
+enable secret 5 $1$fd2e$lZPPh7l.aGL0YvQ8P.2PG.
+!
+username cisco password 0 cisco
+no aaa new-model
+ip subnet-zero
+ip routing
+no ip domain-lookup
+!
+vtp mode transparent
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+vlan 10,20
+!
+vlan 90
+ name Routing
+!
+vlan 914
+ name P2P
+!
+vlan 1220
+ name Users
+!
+vlan 2220
+ name WLAN_Users
+!
+vlan 3220
+ name servers
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ description loopback for L3 switch
+ ip address 10.2.22.194 255.255.255.255
+!
+interface Port-channel1
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 90,3220
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ description routed link to rtrIL022a02a02
+ no switchport
+ ip address 10.2.22.201 255.255.255.252
+!
+interface FastEthernet0/2
+ description trunk interface from mIsIL020a02a01 switch to rtra02a03
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 914
+ switchport mode trunk
+!
+interface FastEthernet0/3
+ description trunk interface from mIsIL020a02a01 switch to wgsa02a01 switch
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1220,2220
+ switchport mode trunk
+!
+interface FastEthernet0/4
+ description trunk interface from mIsIL020a02a01 switch to wgsa02a02 switch
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1220,2220
+ switchport mode trunk
+!
+interface FastEthernet0/5
+ switchport mode dynamic desirable
+!
+interface FastEthernet0/6
+ description access interface for server
+ switchport access vlan 3220
+ switchport mode access
+!
+interface FastEthernet0/7
+ switchport mode dynamic desirable
+!
+interface FastEthernet0/8
+ switchport mode dynamic desirable
+!
+interface FastEthernet0/9
+ switchport mode dynamic desirable
+!
+interface FastEthernet0/10
+ switchport mode dynamic desirable
+!
+interface FastEthernet0/11
+ switchport mode dynamic desirable
+!
+interface FastEthernet0/12
+ switchport mode dynamic desirable
+!
+interface FastEthernet0/13
+ description trunk interface from mIsIL020a02a01 switch to wLca02a01
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1220,2220
+ switchport mode trunk
+!
+interface FastEthernet0/14
+ switchport mode dynamic desirable
+!
+interface FastEthernet0/15
+ switchport mode dynamic desirable
+!
+interface FastEthernet0/16
+ switchport mode dynamic desirable
+!
+interface FastEthernet0/17
+ switchport mode dynamic desirable
+!
+interface FastEthernet0/18
+ switchport mode dynamic desirable
+!
+interface FastEthernet0/19
+ switchport mode dynamic desirable
+!
+interface FastEthernet0/20
+ switchport mode dynamic desirable
+!
+interface FastEthernet0/21
+ switchport mode dynamic desirable
+!
+interface FastEthernet0/22
+ switchport mode dynamic desirable
+!
+interface FastEthernet0/23
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 90,3220
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/24
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 90,3220
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface GigabitEthernet0/1
+ switchport mode dynamic desirable
+!
+interface GigabitEthernet0/2
+ switchport mode dynamic desirable
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan90
+ description Port aggreagation interface to mLsa02a02
+ no ip address
+!
+interface Vlan914
+ description SVI ILvlanP2P
+ ip address 10.2.119.114 255.255.255.252
+!
+interface Vlan1220
+ description Management SVI default gateway for wgsa02a01
+ ip address 10.2.22.210 255.255.255.248
+ ip helper-address 10.2.22.192
+ standby 120 ip 10.2.22.209
+ standby 120 priority 110
+ standby 120 preempt
+!
+interface Vlan2220
+ description Management SVI default gateway for wgsa02a02
+ ip address 10.2.22.225 255.255.255.224
+ ip helper-address 10.2.22.192
+ standby 220 ip 10.2.26.227
+ standby 220 priority 110
+ standby 220 preempt
+!
+interface Vlan3220
+ description Management SVI default gateway for Server
+ ip address 10.2.22.218 255.255.255.248
+ standby 32 ip 10.2.26.217
+ standby 32 priority 110
+ standby 32 preempt
+!
+router ospf 22
+ log-adjacency-changes
+ redistribute static subnets
+ passive-interface default
+ no passive-interface FastEthernet0/1
+ no passive-interface FastEthernet0/23
+ no passive-interface FastEthernet0/24
+ network 10.2.22.128 0.0.0.127 area 0
+ default-information originate
+!
+ip classless
+ip route 0.0.0.0 0.0.0.0 10.2.122.113
+ip route 10.0.0.0 255.255.255.0 10.2.122.113
+ip http server
+ip http secure-server
+!
+!
+!
+control-plane
+!
+!
+line con 0
+ logging synchronous
+ login local
+line vty 0 4
+ logging synchronous
+ login local
+line vty 5 15
+ login
+!
+end
