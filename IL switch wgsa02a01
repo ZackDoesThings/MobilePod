@@ -1,5 +1,5 @@
-
-
+!
+!
 enable
 terminal length 0
 conf t
@@ -10,24 +10,17 @@ line con 0
 logging synchronous
 login local
 no ip domain lookup
-username cisco password cisco
 line vty 0 4
 logging synchronous
 login local
 no ip domain lookup
-username cisco password cisco
-
-
+!
+!
 ****************** VLANs *******************
+!
 vlan 1220
 name Management
 exit
-
-
-vlan 2220
-name User
-exit!
-!
 !
 !
 interface vlan 1220
