@@ -135,14 +135,14 @@ ip prefix-list ILrtr1_OUT seq 5 permit 0.0.0.0/0
 ip prefix-list ILrtr1_OUT seq 10 permit 10.0.0.0/8
 !
 route-map ILrtr1_OUT permit 10
-match ip address prefix-list ILrtr2_OUT
+match ip address prefix-list ILrtr1_OUT
 !
 ip prefix-list ILrtr1_IN seq 5 permit 10.2.22.0/26
 ip prefix-list ILrtr1_IN seq 10 permit 10.2.22.128/26
 ip prefix-list ILrtr1_IN seq 15 permit 10.2.22.64/26
 !
 route-map ILrtr1_IN permit 10
-match ip address prefix-list ILrtr2_IN
+match ip address prefix-list ILrtr1_IN
 !
 end
 !
