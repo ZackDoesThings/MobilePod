@@ -16,6 +16,7 @@ line vty 0 4
 logging synchronous
 login local
 no ip domain lookup
+vtp mode transparent
 !
 ****************** VLANS *******************
 !
