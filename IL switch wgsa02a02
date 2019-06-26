@@ -1,3 +1,4 @@
+!
 enable
 terminal length 0
 conf t
@@ -8,17 +9,12 @@ line con 0
 logging synchronous
 login local
 no ip domain lookup
-username cisco password cisco
 line vty 0 4
 logging synchronous
 login local
 no ip domain lookup
-username cisco password cisco
-
-
-vlan 1220
-name USER
-exit
+!
+!
 vlan 2220
 name MGMT
 exit!
