@@ -37,7 +37,7 @@ exit
 !
 
 vlan 2220
-name WLAN users
+name WLAN_users
 exit
 !
 
@@ -111,9 +111,9 @@ exit!
 interface vlan 3220
 ip address 10.2.22.218 255.255.255.248
 description Management SVI default gateway for Server
-standby 320 ip 10.2.26.217
-standby 320 priority 110
-standby 320 preempt
+standby 32 ip 10.2.26.217
+standby 32 priority 110
+standby 32 preempt
 shut!
 !
 no shut!
