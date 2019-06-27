@@ -145,6 +145,9 @@ match ip address prefix-list CArtr_IN
 !
 ip prefix-list CArtr_OUT seq 5 permit 0.0.0.0/0
 ip prefix-list CArtr_OUT seq 10 permit 10.0.0.0/8
+
+route-map CArtr_OUT permit 10
+match ip address prefix-list CArtr_OUT
 !
 end
 !
