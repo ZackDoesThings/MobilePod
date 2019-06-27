@@ -146,18 +146,6 @@ exit!
 !
 !
 !
-interface F0/13
-description trunk interface from mIsIL020a02a01 switch to wLca02a01
-switchport trunk encapsulation dot1q
-switchport mode trunk
-switchport trunk allowed vlan 1220,2220
-shut!
-!
-no shut!
-!
-exit!
-!
-!
 !
 interface F0/3
 description trunk interface from mIsIL020a02a01 switch to wgsa02a01 switch
