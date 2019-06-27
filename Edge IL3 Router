@@ -1,0 +1,249 @@
+
+rtrIL020a02a03#show run
+Building configuration...
+
+
+Current configuration : 3735 bytes
+!
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname rtrIL020a02a03
+!
+boot-start-marker
+boot system usbflash0:c2800nm-advipservicesk9-mz.151-4.M12a.bin
+boot-end-marker
+!
+! card type command needed for slot/vwic-slot 0/1
+logging message-counter syslog
+enable secret 5 $1$BSQd$aWLweH4hwbwTw8XJMOZty.
+!
+no aaa new-model
+!
+dot11 syslog
+ip source-route
+!
+!
+ip cef
+!
+!
+no ip domain lookup
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+voice-card 0
+!
+!
+!
+!
+!
+username cisco password 7 0822455D0A16
+archive
+ log config
+  hidekeys
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 208.2.22.1 255.255.255.255
+!
+interface Loopback1
+ ip address 184.2.22.1 255.255.255.255
+!
+interface FastEthernet0/0
+ description interface routed link to ISP
+ ip address 10.2.100.22 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1.914
+ description interface routed link to mLsa02a01
+ encapsulation dot1Q 914
+ ip address 10.2.122.113 255.255.255.248
+!
+interface FastEthernet0/0/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/0/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Dot11Radio0/2/0
+ no ip address
+ shutdown
+ speed basic-1.0 basic-2.0 basic-5.5 6.0 9.0 basic-11.0 12.0 18.0 24.0 36.0 48.0 54.0
+ station-role root
+!
+interface Dot11Radio0/2/1
+ no ip address
+ shutdown
+ speed basic-6.0 9.0 basic-12.0 18.0 basic-24.0 36.0 48.0 54.0
+ station-role root
+!
+interface Async0/3/0
+ no ip address
+ encapsulation slip
+!
+interface Async0/3/1
+ no ip address
+ encapsulation slip
+!
+interface Async0/3/2
+ no ip address
+ encapsulation slip
+!
+interface Async0/3/3
+ no ip address
+ encapsulation slip
+!
+interface Async0/3/4
+ no ip address
+ encapsulation slip
+!
+interface Async0/3/5
+ no ip address
+ encapsulation slip
+!
+interface Async0/3/6
+ no ip address
+ encapsulation slip
+!
+interface Async0/3/7
+ no ip address
+ encapsulation slip
+!
+interface Async0/3/8
+ no ip address
+ encapsulation slip
+!
+interface Async0/3/9
+ no ip address
+ encapsulation slip
+!
+interface Async0/3/10
+ no ip address
+ encapsulation slip
+!
+interface Async0/3/11
+ no ip address
+ encapsulation slip
+!
+interface Async0/3/12
+ no ip address
+ encapsulation slip
+!
+interface Async0/3/13
+ no ip address
+ encapsulation slip
+!
+interface Async0/3/14
+ no ip address
+ encapsulation slip
+!
+interface Async0/3/15
+ no ip address
+ encapsulation slip
+!
+router bgp 8010
+ no synchronization
+ bgp log-neighbor-changes
+ network 10.10.110.0 mask 255.255.255.0
+ neighbor 10.10.100.100 remote-as 800
+ neighbor 10.10.100.100 soft-reconfiguration inbound
+ neighbor 10.10.100.100 route-map DEFAULT_RM in
+ neighbor 10.10.100.100 route-map TO_ASTON_PROD_RM out
+ no auto-summary
+!
+ip forward-protocol nd
+ip route 10.2.22.0 255.255.255.0 10.2.122.114
+ip route 10.2.122.0 255.255.255.0 10.2.122.114
+ip route 10.10.10.0 255.255.255.0 10.10.110.114
+ip route 10.10.110.0 255.255.255.0 10.10.110.114
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+ip prefix-list DEFAULT_PL seq 10 permit 0.0.0.0/0
+ip prefix-list DEFAULT_PL seq 20 permit 10.0.0.0/8
+!
+ip prefix-list LAB_SUMMARY_PL seq 10 permit 10.10.10.0/24
+ip prefix-list LAB_SUMMARY_PL seq 20 permit 10.10.110.0/24
+!
+!
+!
+!
+route-map DEFAULT_RM permit 10
+ match ip address prefix-list DEFAULT_PL
+!
+route-map TO_ASTON_PROD_RM permit 10
+ match ip address prefix-list LAB_SUMMARY_PL
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ password 7 104D000A0618
+ logging synchronous
+ login local
+line aux 0
+line 0/3/0 0/3/15
+line vty 0 4
+ password 7 110A1016141D
+ logging synchronous
+ login local
+!
+scheduler allocate 20000 1000
+end
