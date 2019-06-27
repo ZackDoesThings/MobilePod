@@ -1,0 +1,824 @@
+(Cisco Controller) >show run-config
+
+Press Enter to continue...
+
+System Inventory
+NAME: "Chassis"    , DESCR: "4400 Series WLAN Controller:50 APs"
+PID: AIR-WLC4402-50-K9,  VID: V02,  SN: FOC1109F02S
+
+Burned-in MAC Address............................ 00:1A:E2:E9:E9:80
+Crypto Accelerator 1............................. Absent
+Crypto Accelerator 2............................. Absent
+Power Supply 1................................... Absent
+Power Supply 2................................... Present, OK
+Maximum number of APs supported.................. 50
+Press Enter to continue or <ctrl-z> to abort
+
+
+System Information
+Manufacturer's Name.............................. Cisco Systems Inc.
+Product Name..................................... Cisco Controller
+Product Version.................................. 7.0.252.0
+RTOS Version..................................... 7.0.252.0
+Bootloader Version............................... 7.0.252.0
+Emergency Image Version.......................... 7.0.252.0
+Build Type....................................... DATA + WPS
+
+System Name...................................... Cisco_e9:e9:83
+System Location..................................
+System Contact...................................
+System ObjectID.................................. 1.3.6.1.4.1.14179.1.1.4.3
+IP Address....................................... 10.2.22.228
+System Up Time................................... 1 days 22 hrs 59 mins 23 secs
+System Timezone Location.........................
+
+Configured Country............................... US  - United States
+Operating Environment............................ Commercial (0 to 40 C)
+Internal Temp Alarm Limits....................... 0 to 65 C
+Internal Temperature............................. +38 C
+
+
+--More or (q)uit current module or <ctrl-z> to abort
+State of 802.11b Network......................... Enabled
+State of 802.11a Network......................... Enabled
+Number of WLANs.................................. 2
+Number of Active Clients......................... 0
+
+Burned-in MAC Address............................ 00:1A:E2:E9:E9:80
+Crypto Accelerator 1............................. Absent
+Crypto Accelerator 2............................. Absent
+Power Supply 1................................... Absent
+Power Supply 2................................... Present, OK
+Maximum number of APs supported.................. 50
+Press Enter to continue or <ctrl-z> to abort
+
+
+AP Bundle Information
+
+Primary AP Image        Size
+----------------        ----
+ap3g1                   6692
+ap801                   5192
+ap802                   5220
+c1100                   3092
+c1130                   4960
+c1140                   4992
+c1200                   3360
+c1240                   4812
+c1250                   5500
+c1310                   3132
+c1520                   6432
+c3201                   4312
+c602i                   3712
+
+Secondary AP Image      Size
+------------------      ----
+ap3g1                   5792
+ap801                   5180
+
+--More or (q)uit current module or <ctrl-z> to abort
+ap802                   5220
+c1100                   3092
+c1130                   4960
+c1140                   4980
+c1200                   3360
+c1240                   4800
+c1250                   5500
+c1310                   3132
+c1520                   6400
+c3201                   4312
+c602i                   3712
+Press Enter to continue or <ctrl-z> to abort
+
+
+Switch Configuration
+802.3x Flow Control Mode......................... Disable
+FIPS prerequisite features....................... Disabled
+secret obfuscation............................... Enabled
+Strong Password Check Features:
+
+         case-check ...........Enabled
+         consecutive-check ....Enabled
+         default-check .......Enabled
+         username-check ......Enabled
+Press Enter to continue or <ctrl-z> to abort
+
+
+Network Information
+RF-Network Name............................. mobility group 1
+Web Mode.................................... Disable
+Secure Web Mode............................. Enable
+Secure Web Mode Cipher-Option High.......... Disable
+Secure Web Mode Cipher-Option SSLv2......... Enable
+Secure Web Mode RC4 Cipher Preference....... Disable
+Secure Web Mode SSL Protocol................ Disable
+OCSP........................................ Disabled
+OCSP responder URL..........................
+Secure Shell (ssh).......................... Enable
+Telnet...................................... Disable
+Ethernet Multicast Forwarding............... Disable
+Ethernet Broadcast Forwarding............... Enable
+AP Multicast/Broadcast Mode................. Multicast   Address : 0.0.0.0
+IGMP snooping............................... Disabled
+IGMP timeout................................ 60 seconds
+IGMP Query Interval......................... 20 seconds
+User Idle Timeout........................... 300 seconds
+ARP Idle Timeout............................ 300 seconds
+Cisco AP Default Master..................... Disable
+AP Join Priority............................ Disable
+
+--More or (q)uit current module or <ctrl-z> to abort
+Mgmt Via Wireless Interface................. Disable
+Mgmt Via Dynamic Interface.................. Disable
+Bridge MAC filter Config.................... Enable
+Bridge Security Mode........................ EAP
+Mesh Full Sector DFS........................ Enable
+Apple Talk ................................. Disable
+AP Fallback ................................ Enable
+Web Auth Redirect Ports .................... 80
+Web Auth Proxy Redirect  ................... Disable
+Fast SSID Change ........................... Enabled
+802.3 Bridging ............................. Disable
+IP/MAC Addr Binding Check .................. Enabled
+Press Enter to continue or <ctrl-z> to abort
+
+
+Port Summary
+           STP   Admin   Physical   Physical   Link   Link    Mcast
+Pr  Type   Stat   Mode     Mode      Status   Status  Trap   Appliance   POE
+-- ------- ---- ------- ---------- ---------- ------ ------- --------- -------
+1  Normal  Forw Enable  Auto       1000 Full  Up     Enable  Enable     N/A
+2  Normal  Disa Enable  Auto       Auto       Down   Enable  Enable     N/A
+Press Enter to continue or <ctrl-z> to abort
+
+
+AP Summary
+Number of APs.................................... 1
+
+Global AP User Name.............................. Not Configured
+Global AP Dot1x User Name........................ Not Configured
+
+AP Name             Slots  AP Model              Ethernet MAC       Location          Port  Country  Priority
+------------------  -----  --------------------  -----------------  ----------------  ----  -------  ------
+APc471.fed9.1e59     2     AIR-LAP1142N-A-K9     c4:71:fe:d9:1e:59  default location  1        US       1
+
+AP Tcp-Mss-Adjust Info
+AP Name              TCP State  MSS Size
+------------------   --------   -------
+APc471.fed9.1e59     disabled   -
+Press Enter to continue or <ctrl-z> to abort
+
+
+AP Location
+Total Number of AP Groups........................ 0
+
+Site Name........................................ default-group
+Site Description................................. <none>
+
+WLAN ID          Interface          Network Admission Control          Radio Policy
+-------          -----------        --------------------------         ------------
+ 1               management           Disabled                          None
+ 2               management           Disabled                          None
+
+AP Name             Slots  AP Model             Ethernet MAC       Location          Port  Country  Priority
+------------------  -----  -------------------  -----------------  ----------------  ----  -------  --------
+APc471.fed9.1e59     2     AIR-LAP1142N-A-K9    c4:71:fe:d9:1e:59  default location  1     US       1
+
+
+Press Enter to continue or <ctrl-z> to abort
+
+
+AP Config
+Cisco AP Identifier.............................. 0
+Cisco AP Name.................................... APc471.fed9.1e59
+Country code..................................... US  - United States
+Regulatory Domain allowed by Country............. 802.11bg:-A     802.11a:-A
+AP Country code.................................. US  - United States
+AP Regulatory Domain............................. -A
+Switch Port Number .............................. 1
+MAC Address...................................... c4:71:fe:d9:1e:59
+IP Address Configuration......................... DHCP
+IP Address....................................... 10.2.22.231
+IP NetMask....................................... 255.255.255.224
+Gateway IP Addr.................................. 10.2.22.27
+NAT External IP Address.......................... None
+CAPWAP Path MTU.................................. 1485
+Telnet State..................................... Disabled
+Ssh State........................................ Disabled
+Cisco AP Location................................ default location
+Cisco AP Group Name.............................. default-group
+Primary Cisco Switch Name........................
+Primary Cisco Switch IP Address.................. 10.2.22.229
+Secondary Cisco Switch Name......................
+
+--More or (q)uit current module or <ctrl-z> to abort
+Secondary Cisco Switch IP Address................ Not Configured
+Tertiary Cisco Switch Name.......................
+Tertiary Cisco Switch IP Address................. Not Configured
+Administrative State ............................ ADMIN_ENABLED
+Operation State ................................. REGISTERED
+Mirroring Mode .................................. Disabled
+AP Mode ......................................... Local
+Public Safety ................................... Disabled
+AP SubMode ...................................... Not Configured
+Remote AP Debug ................................. Disabled
+Logging trap severity level ..................... informational
+Logging syslog facility ......................... kern
+S/W  Version .................................... 7.0.252.0
+Boot  Version ................................... 12.4.18.3
+Mini IOS Version ................................ 7.0.220.0
+Stats Reporting Period .......................... 180
+LED State........................................ Enabled
+PoE Pre-Standard Switch.......................... Disabled
+PoE Power Injector MAC Addr...................... Disabled
+Power Type/Mode.................................. Power injector / Normal mode
+Number Of Slots.................................. 2
+AP Model......................................... AIR-LAP1142N-A-K9
+AP Image......................................... C1140-K9W8-M
+
+--More or (q)uit current module or <ctrl-z> to abort
+IOS Version...................................... 12.4(23c)JA10
+Reset Button..................................... Enabled
+AP Serial Number................................. FTX1447E1JZ
+AP Certificate Type.............................. Manufacture Installed
+AP User Mode..................................... AUTOMATIC
+AP User Name..................................... Not Configured
+AP Dot1x User Mode............................... Not Configured
+AP Dot1x User Name............................... Not Configured
+Cisco AP system logging host..................... 255.255.255.255
+AP Up Time....................................... 0 days, 13 h 27 m 02 s
+AP LWAPP Up Time................................. 0 days, 12 h 40 m 55 s
+Join Date and Time............................... Sun Jan  1 13:36:42 2017
+
+Join Taken Time.................................. 0 days, 00 h 46 m 06 s
+
+Attributes for Slot  0
+    Radio Type................................... RADIO_TYPE_80211n-2.4
+    Administrative State ........................ ADMIN_ENABLED
+    Operation State ............................. UP
+    Radio Role .................................. ACCESS
+    CellId ...................................... 0
+
+    Station Configuration
+
+--More or (q)uit current module or <ctrl-z> to abort
+      Configuration ............................. AUTOMATIC
+      Number Of WLANs ........................... 2
+      Medium Occupancy Limit .................... 100
+      CFP Period ................................ 4
+      CFP MaxDuration ........................... 60
+      BSSID ..................................... f0:25:72:db:47:f0
+      Operation Rate Set
+        1000 Kilo Bits........................... MANDATORY
+        2000 Kilo Bits........................... MANDATORY
+        5500 Kilo Bits........................... MANDATORY
+        11000 Kilo Bits.......................... MANDATORY
+        6000 Kilo Bits........................... SUPPORTED
+        9000 Kilo Bits........................... SUPPORTED
+        12000 Kilo Bits.......................... SUPPORTED
+        18000 Kilo Bits.......................... SUPPORTED
+        24000 Kilo Bits.......................... SUPPORTED
+        36000 Kilo Bits.......................... SUPPORTED
+        48000 Kilo Bits.......................... SUPPORTED
+        54000 Kilo Bits.......................... SUPPORTED
+      MCS Set
+        MCS 0.................................... SUPPORTED
+        MCS 1.................................... SUPPORTED
+        MCS 2.................................... SUPPORTED
+
+--More or (q)uit current module or <ctrl-z> to abort
+        MCS 3.................................... SUPPORTED
+        MCS 4.................................... SUPPORTED
+        MCS 5.................................... SUPPORTED
+        MCS 6.................................... SUPPORTED
+        MCS 7.................................... SUPPORTED
+        MCS 8.................................... SUPPORTED
+        MCS 9.................................... SUPPORTED
+        MCS 10................................... SUPPORTED
+        MCS 11................................... SUPPORTED
+        MCS 12................................... SUPPORTED
+        MCS 13................................... SUPPORTED
+        MCS 14................................... SUPPORTED
+        MCS 15................................... SUPPORTED
+      Beacon Period ............................. 100
+      Fragmentation Threshold ................... 2346
+      Multi Domain Capability Implemented ....... TRUE
+      Multi Domain Capability Enabled ........... TRUE
+      Country String ............................ US
+
+    Multi Domain Capability
+      Configuration ............................. AUTOMATIC
+      First Chan Num ............................ 1
+      Number Of Channels ........................ 11
+
+--More or (q)uit current module or <ctrl-z> to abort
+
+    MAC Operation Parameters
+      Configuration ............................. AUTOMATIC
+      Fragmentation Threshold ................... 2346
+      Packet Retry Limit ........................ 64
+
+    Tx Power
+      Num Of Supported Power Levels ............. 8
+      Tx Power Level 1 .......................... 20 dBm
+      Tx Power Level 2 .......................... 17 dBm
+      Tx Power Level 3 .......................... 14 dBm
+      Tx Power Level 4 .......................... 11 dBm
+      Tx Power Level 5 .......................... 8 dBm
+      Tx Power Level 6 .......................... 5 dBm
+      Tx Power Level 7 .......................... 2 dBm
+      Tx Power Level 8 .......................... -1 dBm
+      Tx Power Configuration .................... AUTOMATIC
+      Current Tx Power Level .................... 1
+
+    Phy OFDM parameters
+      Configuration ............................. AUTOMATIC
+      Current Channel ........................... 11
+      Extension Channel ......................... NONE
+
+--More or (q)uit current module or <ctrl-z> to abort
+      Channel Width.............................. 20 Mhz
+      Allowed Channel List....................... 1,2,3,4,5,6,7,8,9,10,11
+      TI Threshold .............................. -50
+      Legacy Tx Beamforming Configuration ....... AUTOMATIC
+      Legacy Tx Beamforming ..................... DISABLED
+      Antenna Type............................... INTERNAL_ANTENNA
+      Internal Antenna Gain (in .5 dBi units).... 8
+      Diversity.................................. DIVERSITY_ENABLED
+      802.11n Antennas
+         A....................................... ENABLED
+         B....................................... ENABLED
+         C....................................... ENABLED
+
+    Performance Profile Parameters
+      Configuration ............................. AUTOMATIC
+      Interference threshold..................... 10 %
+      Noise threshold............................  -70 dBm
+      RF utilization threshold................... 80 %
+      Data-rate threshold........................ 1000000 bps
+      Client threshold........................... 12 clients
+      Coverage SNR threshold..................... 12 dB
+      Coverage exception level................... 25 %
+      Client minimum exception level............. 3 clients
+
+--More or (q)uit current module or <ctrl-z> to abort
+    Rogue Containment Information
+    Containment Count............................ 0
+
+    CleanAir Management Information
+        CleanAir Capable......................... No
+
+Cisco AP Identifier.............................. 0
+Cisco AP Name.................................... APc471.fed9.1e59
+Country code..................................... US  - United States
+Regulatory Domain allowed by Country............. 802.11bg:-A     802.11a:-A
+AP Country code.................................. US  - United States
+AP Regulatory Domain............................. -A
+Switch Port Number .............................. 1
+MAC Address...................................... c4:71:fe:d9:1e:59
+IP Address Configuration......................... DHCP
+IP Address....................................... 10.2.22.231
+IP NetMask....................................... 255.255.255.224
+Gateway IP Addr.................................. 10.2.22.27
+NAT External IP Address.......................... None
+CAPWAP Path MTU.................................. 1485
+Telnet State..................................... Disabled
+Ssh State........................................ Disabled
+Cisco AP Location................................ default location
+
+--More or (q)uit current module or <ctrl-z> to abort
+Cisco AP Group Name.............................. default-group
+Primary Cisco Switch Name........................
+Primary Cisco Switch IP Address.................. 10.2.22.229
+Secondary Cisco Switch Name......................
+Secondary Cisco Switch IP Address................ Not Configured
+Tertiary Cisco Switch Name.......................
+Tertiary Cisco Switch IP Address................. Not Configured
+Administrative State ............................ ADMIN_ENABLED
+Operation State ................................. REGISTERED
+Mirroring Mode .................................. Disabled
+AP Mode ......................................... Local
+Public Safety ................................... Disabled
+AP SubMode ...................................... Not Configured
+Remote AP Debug ................................. Disabled
+Logging trap severity level ..................... informational
+Logging syslog facility ......................... kern
+S/W  Version .................................... 7.0.252.0
+Boot  Version ................................... 12.4.18.3
+Mini IOS Version ................................ 7.0.220.0
+Stats Reporting Period .......................... 180
+LED State........................................ Enabled
+PoE Pre-Standard Switch.......................... Disabled
+PoE Power Injector MAC Addr...................... Disabled
+
+--More or (q)uit current module or <ctrl-z> to abort
+Power Type/Mode.................................. Power injector / Normal mode
+Number Of Slots.................................. 2
+AP Model......................................... AIR-LAP1142N-A-K9
+AP Image......................................... C1140-K9W8-M
+IOS Version...................................... 12.4(23c)JA10
+Reset Button..................................... Enabled
+AP Serial Number................................. FTX1447E1JZ
+AP Certificate Type.............................. Manufacture Installed
+AP User Mode..................................... AUTOMATIC
+AP User Name..................................... Not Configured
+AP Dot1x User Mode............................... Not Configured
+AP Dot1x User Name............................... Not Configured
+Cisco AP system logging host..................... 255.255.255.255
+AP Up Time....................................... 0 days, 13 h 27 m 02 s
+AP LWAPP Up Time................................. 0 days, 12 h 40 m 55 s
+Join Date and Time............................... Sun Jan  1 13:36:42 2017
+
+Join Taken Time.................................. 0 days, 00 h 46 m 06 s
+
+Attributes for Slot  1
+    Radio Type................................... RADIO_TYPE_80211n-5
+    Radio Subband................................ RADIO_SUBBAND_ALL
+    Administrative State ........................ ADMIN_ENABLED
+
+--More or (q)uit current module or <ctrl-z> to abort
+    Operation State ............................. UP
+    Radio Role .................................. ACCESS
+    CellId ...................................... 0
+
+    Station Configuration
+      Configuration ............................. AUTOMATIC
+      Number Of WLANs ........................... 2
+      Medium Occupancy Limit .................... 100
+      CFP Period ................................ 4
+      CFP MaxDuration ........................... 60
+      BSSID ..................................... f0:25:72:db:47:f0
+      Operation Rate Set
+        6000 Kilo Bits........................... MANDATORY
+        9000 Kilo Bits........................... SUPPORTED
+        12000 Kilo Bits.......................... MANDATORY
+        18000 Kilo Bits.......................... SUPPORTED
+        24000 Kilo Bits.......................... MANDATORY
+        36000 Kilo Bits.......................... SUPPORTED
+        48000 Kilo Bits.......................... SUPPORTED
+        54000 Kilo Bits.......................... SUPPORTED
+      MCS Set
+        MCS 0.................................... SUPPORTED
+        MCS 1.................................... SUPPORTED
+
+--More or (q)uit current module or <ctrl-z> to abort
+        MCS 2.................................... SUPPORTED
+        MCS 3.................................... SUPPORTED
+        MCS 4.................................... SUPPORTED
+        MCS 5.................................... SUPPORTED
+        MCS 6.................................... SUPPORTED
+        MCS 7.................................... SUPPORTED
+        MCS 8.................................... SUPPORTED
+        MCS 9.................................... SUPPORTED
+        MCS 10................................... SUPPORTED
+        MCS 11................................... SUPPORTED
+        MCS 12................................... SUPPORTED
+        MCS 13................................... SUPPORTED
+        MCS 14................................... SUPPORTED
+        MCS 15................................... SUPPORTED
+      Beacon Period ............................. 100
+      Fragmentation Threshold ................... 2346
+      Multi Domain Capability Implemented ....... TRUE
+      Multi Domain Capability Enabled ........... TRUE
+      Country String ............................ US
+
+    Multi Domain Capability
+      Configuration ............................. AUTOMATIC
+      First Chan Num ............................ 36
+
+--More or (q)uit current module or <ctrl-z> to abort
+      Number Of Channels ........................ 21
+
+    MAC Operation Parameters
+      Configuration ............................. AUTOMATIC
+      Fragmentation Threshold ................... 2346
+      Packet Retry Limit ........................ 64
+
+    Tx Power
+      Num Of Supported Power Levels ............. 7
+      Tx Power Level 1 .......................... 17 dBm
+      Tx Power Level 2 .......................... 14 dBm
+      Tx Power Level 3 .......................... 11 dBm
+      Tx Power Level 4 .......................... 8 dBm
+      Tx Power Level 5 .......................... 5 dBm
+      Tx Power Level 6 .......................... 2 dBm
+      Tx Power Level 7 .......................... -1 dBm
+      Tx Power Configuration .................... AUTOMATIC
+      Current Tx Power Level .................... 1
+
+    Phy OFDM parameters
+      Configuration ............................. AUTOMATIC
+      Current Channel ........................... 149
+      Extension Channel ......................... NONE
+
+--More or (q)uit current module or <ctrl-z> to abort
+      Channel Width.............................. 20 Mhz
+      Allowed Channel List....................... 36,40,44,48,52,56,60,64,100,
+        ......................................... 104,108,112,116,132,136,140,
+        ......................................... 149,153,157,161,165
+      TI Threshold .............................. -50
+      Legacy Tx Beamforming Configuration ....... AUTOMATIC
+      Legacy Tx Beamforming ..................... DISABLED
+      Antenna Type............................... INTERNAL_ANTENNA
+      Internal Antenna Gain (in .5 dBi units).... 8
+      Diversity.................................. DIVERSITY_ENABLED
+      802.11n Antennas
+         A....................................... ENABLED
+         B....................................... ENABLED
+         C....................................... ENABLED
+
+    Performance Profile Parameters
+      Configuration ............................. AUTOMATIC
+      Interference threshold..................... 10 %
+      Noise threshold............................  -70 dBm
+      RF utilization threshold................... 80 %
+      Data-rate threshold........................ 1000000 bps
+      Client threshold........................... 12 clients
+      Coverage SNR threshold..................... 16 dB
+
+--More or (q)uit current module or <ctrl-z> to abort
+      Coverage exception level................... 25 %
+      Client minimum exception level............. 3 clients
+    Rogue Containment Information
+    Containment Count............................ 0
+
+    CleanAir Management Information
+        CleanAir Capable......................... No
+
+Press Enter to continue or <ctrl-z> to abort
+
+
+Press Enter to continue or <ctrl-z> to abort
+
+
+AP Airewave Director Configuration
+Number Of Slots.................................. 2
+AP Name.......................................... APc471.fed9.1e59
+MAC Address...................................... c4:71:fe:d9:1e:59
+  Slot ID........................................ 0
+  Radio Type..................................... RADIO_TYPE_80211b/g
+  Sub-band Type.................................. All
+  Noise Information
+    Noise Profile................................ PASSED
+    Channel 1....................................  -89 dBm
+    Channel 2....................................  -88 dBm
+    Channel 3....................................  -86 dBm
+    Channel 4....................................  -89 dBm
+    Channel 5....................................  -81 dBm
+    Channel 6....................................  -86 dBm
+    Channel 7....................................  -85 dBm
+    Channel 8....................................  -91 dBm
+    Channel 9....................................  -84 dBm
+    Channel 10...................................  -87 dBm
+    Channel 11...................................  -91 dBm
+  Interference Information
+    Interference Profile......................... FAILED
+    Channel 1....................................  -68 dBm @ 26 % busy
+
+--More or (q)uit current module or <ctrl-z> to abort
+    Channel 2....................................  -64 dBm @  6 % busy
+    Channel 3.................................... -128 dBm @  0 % busy
+    Channel 4.................................... -128 dBm @  0 % busy
+    Channel 5....................................  -54 dBm @  2 % busy
+    Channel 6....................................  -63 dBm @  5 % busy
+    Channel 7....................................  -56 dBm @  6 % busy
+    Channel 8.................................... -128 dBm @  0 % busy
+    Channel 9.................................... -128 dBm @  0 % busy
+    Channel 10...................................  -54 dBm @  3 % busy
+    Channel 11...................................  -58 dBm @ 14 % busy
+  Load Information
+    Load Profile................................. PASSED
+    Receive Utilization.......................... 0 %
+    Transmit Utilization......................... 5 %
+    Channel Utilization.......................... 32 %
+    Attached Clients............................. 0 clients
+  Coverage Information
+    Coverage Profile............................. PASSED
+    Failed Clients............................... 0 clients
+  Client Signal Strengths
+    RSSI -100 dbm................................ 0 clients
+    RSSI  -92 dbm................................ 0 clients
+    RSSI  -84 dbm................................ 0 clients
+
+--More or (q)uit current module or <ctrl-z> to abort
+    RSSI  -76 dbm................................ 0 clients
+    RSSI  -68 dbm................................ 0 clients
+    RSSI  -60 dbm................................ 0 clients
+    RSSI  -52 dbm................................ 0 clients
+  Client Signal To Noise Ratios
+    SNR    0 dB.................................. 0 clients
+    SNR    5 dB.................................. 0 clients
+    SNR   10 dB.................................. 0 clients
+    SNR   15 dB.................................. 0 clients
+    SNR   20 dB.................................. 0 clients
+    SNR   25 dB.................................. 0 clients
+    SNR   30 dB.................................. 0 clients
+    SNR   35 dB.................................. 0 clients
+    SNR   40 dB.................................. 0 clients
+    SNR   45 dB.................................. 0 clients
+  Nearby APs
+  Radar Information
+  Channel Assignment Information
+    Current Channel Average Energy...............  -78 dBm
+    Previous Channel Average Energy..............  -72 dBm
+    Channel Change Count......................... 1
+    Last Channel Change Time..................... Sun Jan  1 15:20:59 2017
+    Recommended Best Channel..................... 11
+
+--More or (q)uit current module or <ctrl-z> to abort
+  RF Parameter Recommendations
+    Power Level.................................. 1
+    RTS/CTS Threshold............................ 2347
+    Fragmentation Threshold...................... 2346
+    Antenna Pattern.............................. 0
+
+  Persistent Interference Devices
+  Class Type                 Channel  DC (%%)  RSSI (dBm)  Last Update Time
+  -------------------------  -------  ------  ----------  ------------------------
+  All third party trademarks are the property of their respective owners.
+Number Of Slots.................................. 2
+AP Name.......................................... APc471.fed9.1e59
+MAC Address...................................... c4:71:fe:d9:1e:59
+  Slot ID........................................ 1
+  Radio Type..................................... RADIO_TYPE_80211a
+  Sub-band Type.................................. All
+  Noise Information
+    Noise Profile................................ PASSED
+    Channel 36................................... -100 dBm
+    Channel 40...................................  -99 dBm
+    Channel 44...................................  -99 dBm
+    Channel 48................................... -104 dBm
+    Channel 52...................................  -99 dBm
+
+--More or (q)uit current module or <ctrl-z> to abort
+    Channel 56................................... -100 dBm
+    Channel 60...................................  -99 dBm
+    Channel 64...................................  -99 dBm
+    Channel 100.................................. -100 dBm
+    Channel 104..................................  -99 dBm
+    Channel 108..................................  -97 dBm
+    Channel 112..................................  -95 dBm
+    Channel 116..................................  -99 dBm
+    Channel 132..................................  -97 dBm
+    Channel 136..................................  -95 dBm
+    Channel 140..................................  -96 dBm
+    Channel 149..................................  -96 dBm
+    Channel 153..................................  -93 dBm
+    Channel 157..................................  -94 dBm
+    Channel 161..................................  -95 dBm
+    Channel 165..................................  -97 dBm
+  Interference Information
+    Interference Profile......................... PASSED
+    Channel 36...................................  -60 dBm @  1 % busy
+    Channel 40................................... -128 dBm @  0 % busy
+    Channel 44................................... -128 dBm @  0 % busy
+    Channel 48................................... -128 dBm @  0 % busy
+    Channel 52...................................  -82 dBm @  2 % busy
+
+--More or (q)uit current module or <ctrl-z> to abort
+    Channel 56................................... -128 dBm @  0 % busy
+    Channel 60................................... -128 dBm @  0 % busy
+    Channel 64................................... -128 dBm @  0 % busy
+    Channel 100.................................. -128 dBm @  0 % busy
+    Channel 104.................................. -128 dBm @  0 % busy
+    Channel 108.................................. -128 dBm @  0 % busy
+    Channel 112.................................. -128 dBm @  0 % busy
+    Channel 116..................................  -73 dBm @  2 % busy
+    Channel 132.................................. -128 dBm @  0 % busy
+    Channel 136.................................. -128 dBm @  0 % busy
+    Channel 140.................................. -128 dBm @  0 % busy
+    Channel 149..................................  -83 dBm @  1 % busy
+    Channel 153.................................. -128 dBm @  0 % busy
+    Channel 157.................................. -128 dBm @  0 % busy
+    Channel 161.................................. -128 dBm @  0 % busy
+    Channel 165.................................. -128 dBm @  0 % busy
+    Rogue Histogram (20/40_ABOVE/40_BELOW)
+    .............................................
+    Channel 36...................................  2/ 1/ 0
+    Channel 40...................................  0/ 0/ 0
+    Channel 44...................................  0/ 0/ 0
+    Channel 48...................................  1/ 0/ 0
+    Channel 52...................................  1/ 2/ 0
+
+--More or (q)uit current module or <ctrl-z> to abort
+    Channel 56...................................  0/ 0/ 0
+    Channel 60...................................  0/ 0/ 0
+    Channel 64...................................  1/ 0/ 0
+    Channel 100..................................  0/ 1/ 0
+    Channel 104..................................  0/ 0/ 0
+    Channel 108..................................  0/ 0/ 0
+    Channel 112..................................  0/ 0/ 0
+    Channel 116..................................  0/ 3/ 0
+    Channel 132..................................  0/ 3/ 0
+    Channel 136..................................  0/ 0/ 0
+    Channel 140..................................  0/ 0/ 0
+    Channel 149..................................  0/ 4/ 0
+    Channel 153..................................  0/ 0/ 0
+    Channel 157..................................  0/ 0/ 0
+    Channel 161..................................  1/ 0/ 0
+    Channel 165..................................  0/ 0/ 0
+  Load Information
+    Load Profile................................. PASSED
+    Receive Utilization.......................... 0 %
+    Transmit Utilization......................... 0 %
+    Channel Utilization.......................... 3 %
+    Attached Clients............................. 0 clients
+  Coverage Information
+
+--More or (q)uit current module or <ctrl-z> to abort
+    Coverage Profile............................. PASSED
+    Failed Clients............................... 0 clients
+  Client Signal Strengths
+    RSSI -100 dbm................................ 0 clients
+    RSSI  -92 dbm................................ 0 clients
+    RSSI  -84 dbm................................ 0 clients
+    RSSI  -76 dbm................................ 0 clients
+    RSSI  -68 dbm................................ 0 clients
+    RSSI  -60 dbm................................ 0 clients
+    RSSI  -52 dbm................................ 0 clients
+  Client Signal To Noise Ratios
+    SNR    0 dB.................................. 0 clients
+    SNR    5 dB.................................. 0 clients
+    SNR   10 dB.................................. 0 clients
+    SNR   15 dB.................................. 0 clients
+    SNR   20 dB.................................. 0 clients
+    SNR   25 dB.................................. 0 clients
+    SNR   30 dB.................................. 0 clients
+    SNR   35 dB.................................. 0 clients
+    SNR   40 dB.................................. 0 clients
+    SNR   45 dB.................................. 0 clients
+  Nearby APs
+  Radar Information
+
+--More or (q)uit current module or <ctrl-z> to abort
+  Channel Assignment Information
+    Current Channel Average Energy...............  -86 dBm
+    Previous Channel Average Energy..............  -65 dBm
+    Channel Change Count......................... 1
+    Last Channel Change Time..................... Sun Jan  1 13:54:55 2017
+    Recommended Best Channel..................... 149
+  RF Parameter Recommendations
+    Power Level.................................. 1
+    RTS/CTS Threshold............................ 2347
+    Fragmentation Threshold...................... 2346
+    Antenna Pattern.............................. 0
+
+  Persistent Interference Devices
+  Class Type                 Channel  DC (%%)  RSSI (dBm)  Last Update Time
+  -------------------------  -------  ------  ----------  ------------------------
+  All third party trademarks are the property of their respective owners.
+Press Enter to continue or <ctrl-z> to abort
+
+
+Press Enter to continue or <ctrl-z> to abort
+
+
+802.11a Configuration
+802.11a Network.................................. Enabled
+11nSupport....................................... Enabled
+      802.11a Low Band........................... Enabled
+      802.11a Mid Band........................... Enabled
+      802.11a High Band.......................... Enabled
+802.11a Operational Rates
+    802.11a 6M Rate.............................. Mandatory
+    802.11a 9M Rate.............................. Supported
+    802.11a 12M Rate............................. Mandatory
+    802.11a 18M Rate............................. Supported
+    802.11a 24M Rate............................. Mandatory
+    802.11a 36M Rate............................. Supported
+    802.11a 48M Rate............................. Supported
+    802.11a 54M Rate............................. Supported
+802.11n MCS Settings:
+    MCS 0........................................ Supported
+    MCS 1........................................ Supported
+    MCS 2........................................ Supported
+    MCS 3........................................ Supported
+    MCS 4........................................ Supported
+    MCS 5........................................ Supported
+    MCS 6........................................ Supported
+
+--More or (q)uit current module or <ctrl-z> to abort
+    MCS 7........................................ Supported
+    MCS 8........................................ Supported
+    MCS 9........................................ Supported
+    MCS 10....................................... Supported
+    MCS 11....................................... Supported
+    MCS 12....................................... Supported
+    MCS 13....................................... Supported
+    MCS 14....................................... Supported
+    MCS 15....................................... Supported
+802.11n Status:
+    A-MPDU Tx:
+        Priority 0............................... Enabled
+        Priority 1............................... Disabled
+        Priority 2............................... Disabled
+        Priority 3............................... Disabled
+        Priority 4............................... Enabled
+        Priority 5............................... Enabled
+        Priority 6............................... Disabled
+        Priority 7............................... Disabled
+    A-MSDU Tx:
+        Priority 0............................... Enabled
+        Priority 1............................... Enabled
+        Priority 2............................... Enabled
+
